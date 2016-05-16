@@ -3,26 +3,11 @@ import QtQuick.Controls 1.2
 
 ApplicationWindow {
     visible: true
-    width: 640
-    height: 480
-    title: qsTr("Hello World")
+    width: 720
+    height: 1080
+    title: qsTr("Whack Job")
 
-    menuBar: MenuBar {
-        Menu {
-            title: qsTr("File")
-            MenuItem {
-                text: qsTr("&Open")
-                onTriggered: console.log("Open action triggered");
-            }
-            MenuItem {
-                text: qsTr("Exit")
-                onTriggered: Qt.quit();
-            }
-        }
-    }
-
-    Label {
-        text: qsTr("Hello World")
-        anchors.centerIn: parent
+    WhackAMoleBoard {
+        anchors.fill: parent
     }
 }

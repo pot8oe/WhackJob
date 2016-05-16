@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>WhackAMoleBoard.qml</file>
+        <file>WhackAMoleSurface.qml</file>
+        <file>WhackAMoleScore.qml</file>
     </qresource>
 </RCC>
