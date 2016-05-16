@@ -4,5 +4,6 @@
         <file>WhackAMoleBoard.qml</file>
         <file>WhackAMoleSurface.qml</file>
         <file>WhackAMoleScore.qml</file>
+        <file>EmitterStar.qml</file>
     </qresource>
 </RCC>

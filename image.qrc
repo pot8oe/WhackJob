@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>images/whack_job_001.png</file>
         <file>images/whack_job_002.png</file>
+        <file>images/star.svg</file>
     </qresource>
 </RCC>
