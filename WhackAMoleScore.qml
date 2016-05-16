@@ -42,11 +42,17 @@ Rectangle {
             font.family: fontRobotoThin.name
             font.pixelSize: rectScore.height * 0.90
             color: "#ffffffff"
-            text: "000000"
+            text: padZeros(score)
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             textFormat: Text.PlainText
         }
+    }
+
+    function padZeros(number) {
+        var nStr = number.toString();
+        var pad = "0000000"
+        return pad.substring(0, pad.length - nStr.length) + nStr
     }
 
 
