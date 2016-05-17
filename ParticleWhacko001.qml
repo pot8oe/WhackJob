@@ -8,14 +8,25 @@ ImageParticle {
     height: 100
 
     Sprite {
-        id: sprite
+        id: spriteInitial
         name: "initial"
         frameCount: 1
         source: "qrc:/images/whack_job_sprite_001.png"
         frameWidth: 500
         frameHeight: 500
     }
+    Sprite {
+        id: spriteHit
+        name: "hit"
+        frameCount: 1
+        source: "qrc:/images/whack_job_sprite_001.png"
+        frameWidth: 500
+        frameHeight: 500
+        frameX: 500
+        frameY: 0
+    }
 
-    sprites: [ sprite ]
+    sprites: [ spriteInitial, spriteHit ]
+
 
 }
