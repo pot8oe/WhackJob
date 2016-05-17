@@ -8,6 +8,8 @@ Rectangle {
     border.color: "#ffd40000"
     border.width: 3
 
+    signal scorePoint
+
     Item {
         id: privates
         property string pGroupName_Whacko001: "whacko001";
@@ -15,6 +17,7 @@ Rectangle {
             itemStarLayout.width < itemStarLayout.height ?
                         itemStarLayout.width * 0.20 : itemStarLayout.height * 0.15
         }
+        property double starSizeHalf: starSize * 0.5
         property double starLayoutSize: {
             rectWhackSurface.width < rectWhackSurface.height ?
                         rectWhackSurface.width : rectWhackSurface.height;
@@ -269,7 +272,30 @@ Rectangle {
     Age {
         id: ageHit
         enabled: false
-        groups: [ privates.pGroupName_Whacko001 ]
+        system: systemDrumpf
+        //groups: [ privates.pGroupName_Whacko001 ]
+        //SpriteGoal: "hit"
+        width: privates.starSize
+        height: privates.starSize
+
+        Rectangle{anchors.fill: parent; color:"#55000000"}
+
+        onAffected: {
+            resetAgeAffector();
+
+            scorePoint();
+        }
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        enabled: true
+        acceptedButtons: MouseArea.Left | MouseArea.Right
+        onClicked: {
+            ageHit.enabled = true;
+            ageHit.x = mouse.x - privates.starSizeHalf;
+            ageHit.y = mouse.y - privates.starSizeHalf;
+        }
     }
 
 
@@ -279,6 +305,9 @@ Rectangle {
         running: false
         repeat: true
         onTriggered: {
+
+            resetAgeAffector();
+
             star10.emitter.burst(1);
         }
 
@@ -287,6 +316,14 @@ Rectangle {
     Component.onCompleted: {
         systemDrumpf.reset();
         timer.start();
+    }
+
+
+
+    function resetAgeAffector() {
+        ageHit.x = -ageHit.width;
+        ageHit.y = -ageHit.height;
+        ageHit.enabled = false;
     }
 
 }
