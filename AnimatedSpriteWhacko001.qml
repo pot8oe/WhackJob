@@ -8,6 +8,4 @@ AnimatedSprite {
     running: false
     frameWidth: 500
     frameHeight: 500
-    loops: AnimatedSprite.Infinite
-
 }
