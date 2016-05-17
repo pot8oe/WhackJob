@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/whack_job_001.png</file>
-        <file>images/whack_job_001_hit.png</file>
         <file>images/star.svg</file>
+        <file>images/whack_job_sprite_001.png</file>
     </qresource>
 </RCC>
