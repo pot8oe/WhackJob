@@ -1,16 +1,23 @@
 import QtQuick 2.0
 import QtQuick.Particles 2.0
 
-Emitter {
-    id: emitterStar
-    width: 150
-    height: 150
+Image {
+    id: img
+    fillMode: Image.PreserveAspectFit
+    source: "qrc:/images/star.svg"
 
-    Image {
-        sourceSize.width: emitterStar.width
-        sourceSize.height: emitterStar.height
-        fillMode: Image.Stretch
-        anchors.fill: parent
-        source: "qrc:/images/star.svg"
+    //Rectangle{ anchors.fill: parent; color: "#55000000";}
+
+    readonly property alias emitter: emitterInternal
+
+    Emitter {
+        id: emitterInternal
+        anchors.centerIn: parent
+        width: 1
+        height: 1
+        size: img.sourceSize.width * 1.10
+        sizeVariation: 10
+        emitRate: 0
     }
+
 }
