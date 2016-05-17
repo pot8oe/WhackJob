@@ -6,5 +6,6 @@
         <file>WhackAMoleScore.qml</file>
         <file>EmitterStar.qml</file>
         <file>ParticleWhacko001.qml</file>
+        <file>AnimatedSpriteWhacko001.qml</file>
     </qresource>
 </RCC>
