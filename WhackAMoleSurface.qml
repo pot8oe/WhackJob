@@ -282,16 +282,23 @@ Rectangle {
         id: ageHit
         enabled: false
         system: systemDrumpf
-        //groups: [ privates.pGroupName_Whacko001 ]
-        //SpriteGoal: "hit"
+        groups: [ privates.pGroupName_Whacko001 ]
         width: privates.starSize
         height: privates.starSize
+        lifeLeft: 250
 
-        Rectangle{anchors.fill: parent; color:"#55000000"}
+        //Rectangle{anchors.fill: parent; color:"#55000000"}
+
+        SpriteGoal {
+            id: spriteGoalHit
+            system:systemDrumpf
+            anchors.fill: parent
+            goalState: "hit"
+            jump: true
+        }
 
         onAffected: {
             resetAgeAffector();
-
             scorePoint();
         }
     }
@@ -310,15 +317,16 @@ Rectangle {
 
     Timer {
         id: timer
-        interval: 1000
+        interval: 500
         running: false
         repeat: true
         onTriggered: {
 
             resetAgeAffector();
 
-            for(var i=0; i<starEmitters.length; i++)
-                starEmitters[i].emitter.burst(1);
+            var i=getRandomIntInclusive(0, starEmitters.length-1);
+
+            starEmitters[i].emitter.burst(1);
         }
 
     }
@@ -334,6 +342,12 @@ Rectangle {
         ageHit.x = -ageHit.width;
         ageHit.y = -ageHit.height;
         ageHit.enabled = false;
+    }
+
+    // Returns a random integer between min (included) and max (included)
+    // Using Math.round() will give you a non-uniform distribution!
+    function getRandomIntInclusive(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
 }
