@@ -8,6 +8,15 @@ Rectangle {
     border.color: "#ffd40000"
     border.width: 3
 
+
+    property var starEmitters: [
+        star10, star11, star12, star13,
+        star20, star21, star22, star23,
+        star30, star31, star32, star33,
+        star40, star41, star42, star43,
+        star50, star51, star52, star53,
+    ];
+
     signal scorePoint
 
     Item {
@@ -308,7 +317,8 @@ Rectangle {
 
             resetAgeAffector();
 
-            star10.emitter.burst(1);
+            for(var i=0; i<starEmitters.length; i++)
+                starEmitters[i].emitter.burst(1);
         }
 
     }
