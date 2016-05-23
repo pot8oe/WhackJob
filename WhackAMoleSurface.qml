@@ -8,6 +8,10 @@ Rectangle {
     border.color: "#ffd40000"
     border.width: 3
 
+    property int score: 0;
+    property int totalWhackJobs: 0;
+
+    signal endGame
 
     property var starEmitters: [
         star10, star11, star12, star13,
@@ -17,7 +21,6 @@ Rectangle {
         star50, star51, star52, star53,
     ];
 
-    signal scorePoint
 
     Item {
         id: privates
@@ -285,7 +288,7 @@ Rectangle {
         groups: [ privates.pGroupName_Whacko001 ]
         width: privates.starSize
         height: privates.starSize
-        lifeLeft: 250
+        lifeLeft: timer.interval * 0.5
 
         //Rectangle{anchors.fill: parent; color:"#55000000"}
 
@@ -299,7 +302,7 @@ Rectangle {
 
         onAffected: {
             resetAgeAffector();
-            scorePoint();
+            score++;
         }
     }
 
@@ -327,15 +330,16 @@ Rectangle {
             var i=getRandomIntInclusive(0, starEmitters.length-1);
 
             starEmitters[i].emitter.burst(1);
+
+            totalWhackJobs++;
+
+            if(totalWhackJobs - score < (totalWhackJobs*0.75)) {
+                timer.stop();
+                endGame();
+            }
         }
 
     }
-
-    Component.onCompleted: {
-        systemDrumpf.reset();
-        timer.start();
-    }
-
 
 
     function resetAgeAffector() {
@@ -348,6 +352,23 @@ Rectangle {
     // Using Math.round() will give you a non-uniform distribution!
     function getRandomIntInclusive(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+
+    function reset() {
+        score = 0;
+        totalWhackJobs = 0;
+        timer.interval = 800;
+        timer.start();
+    }
+
+    function increaseDifficulty() {
+        timer.interval -= 50;
+    }
+
+    Component.onCompleted: {
+        systemDrumpf.reset();
+        timer.start();
     }
 
 }
