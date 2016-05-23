@@ -9,12 +9,6 @@ ApplicationWindow {
     height: 1080
     title: qsTr("Whack Job")
 
-    WhackAMoleBoard {
-        id: gameBoard
-        anchors.fill: parent
-    }
-
-
     Audio {
         id: audioBgMusic
         loops: MediaPlayer.Infinite
@@ -22,6 +16,19 @@ ApplicationWindow {
         onAvailabilityChanged: {
             console.debug("Audio Availability: " + audioPlayerMusic.availability);
         }
+    }
+
+    WhackAMoleBoard {
+        id: gameBoard
+        anchors.fill: parent
+    }
+
+
+    DialogWelcome {
+        id: dialogWelcome
+        anchors.centerIn: parent
+        width: parent.width * 0.75
+        height: parent.width * 0.75
     }
 
     Connections {

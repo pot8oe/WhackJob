@@ -7,5 +7,9 @@
         <file>EmitterStar.qml</file>
         <file>ParticleWhacko001.qml</file>
         <file>AnimatedSpriteWhacko001.qml</file>
+        <file>DialogWelcome.qml</file>
+        <file>DialogEndGame.qml</file>
+        <file>DialogAbout.qml</file>
+        <file>Dialog.qml</file>
     </qresource>
 </RCC>
