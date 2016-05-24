@@ -4,6 +4,8 @@ Rectangle {
     anchors.margins: 5
     color: "#ffffffff"
 
+    property bool isGameRunning: false;
+
     signal gameEnded;
 
     WhackAMoleScore {
@@ -22,12 +24,17 @@ Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
+        onEndGame: gameEnded()
     }
 
+
+    onGameEnded: {
+        isGameRunning = false;
+    }
 
     function startGame() {
         surface.reset();
+        isGameRunning = true;
     }
-
 
 }
