@@ -36,6 +36,7 @@ Rectangle {
         }
         property double hSpacing: privates.starLayoutSize * 0.02
         property double vSpacing: privates.starLayoutSize * 0.03
+        property int lastIndex: -1;
     }
 
 
@@ -288,7 +289,8 @@ Rectangle {
         groups: [ privates.pGroupName_Whacko001 ]
         width: privates.starSize
         height: privates.starSize
-        lifeLeft: timer.interval * 0.5
+        lifeLeft: 300
+        once: true
 
         //Rectangle{anchors.fill: parent; color:"#55000000"}
 
@@ -320,22 +322,32 @@ Rectangle {
 
     Timer {
         id: timer
-        interval: 500
+        interval: 800
         running: false
         repeat: true
         onTriggered: {
 
             resetAgeAffector();
 
-            var i=getRandomIntInclusive(0, starEmitters.length-1);
+            if(score % 10 == 0) increaseDifficulty();
 
-            starEmitters[i].emitter.burst(1);
+            //console.debug("Total: " + totalWhackJobs + " Score: " + score);
 
-            totalWhackJobs++;
-
-            if(totalWhackJobs - score < (totalWhackJobs*0.75)) {
+            if(totalWhackJobs - score > ((totalWhackJobs*0.33)+0.5) && totalWhackJobs > 10) {
                 timer.stop();
                 endGame();
+            } else {
+
+                var i=-1;
+
+                do { i = getRandomIntInclusive(0, starEmitters.length-1); }
+                while(i == privates.lastIndex);
+
+                privates.lastIndex = i;
+
+                starEmitters[i].emitter.burst(1);
+
+                totalWhackJobs++;
             }
         }
 
@@ -364,6 +376,7 @@ Rectangle {
 
     function increaseDifficulty() {
         timer.interval -= 50;
+        //console.debug("Difficulty Increased: " + timer.interval + " Score: " + score);
     }
 
     Component.onCompleted: {
