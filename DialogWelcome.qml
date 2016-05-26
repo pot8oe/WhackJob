@@ -13,6 +13,6 @@ Dialog {
         styleColor: "#ff0000ff"
         style: Text.Outline
         smooth: true
-        text: Qt.qsTr("Welcome");
+        text: qsTr("Welcome");
     }
 }
