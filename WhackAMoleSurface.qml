@@ -335,7 +335,7 @@ Rectangle {
 
             if(totalWhackJobs - score > ((totalWhackJobs*0.33)+0.5) && totalWhackJobs > 10) {
                 timer.stop();
-                endGame();
+                timerEndGame.start();
             } else {
 
                 var i=-1;
@@ -350,7 +350,14 @@ Rectangle {
                 totalWhackJobs++;
             }
         }
+    }
 
+    Timer {
+        id: timerEndGame
+        interval: 1500
+        running: false
+        repeat: false
+        onTriggered: rectWhackSurface.endGame();
     }
 
 
@@ -379,9 +386,9 @@ Rectangle {
         //console.debug("Difficulty Increased: " + timer.interval + " Score: " + score);
     }
 
-    Component.onCompleted: {
-        systemDrumpf.reset();
-        timer.start();
-    }
+//    Component.onCompleted: {
+//        systemDrumpf.reset();
+//        timer.start();
+//    }
 
 }

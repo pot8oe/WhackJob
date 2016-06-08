@@ -1,6 +1,7 @@
 import QtQuick 2.0
 
 Rectangle {
+    id: rectBoard
     anchors.margins: 5
     color: "#ffffffff"
 
@@ -24,7 +25,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        onEndGame: gameEnded()
+        onEndGame: rectBoard.gameEnded();
     }
 
 

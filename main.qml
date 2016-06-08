@@ -21,6 +21,7 @@ ApplicationWindow {
     WhackAMoleBoard {
         id: gameBoard
         anchors.fill: parent
+        onGameEnded: applicationWindow.showEndGame();
     }
 
 
@@ -29,6 +30,31 @@ ApplicationWindow {
         anchors.centerIn: parent
         width: parent.width * 0.75
         height: parent.width * 0.75
+        onStartGame: applicationWindow.startGame();
+        onQuit: applicationWindow.quit();
+        onAbout: applicationWindow.showAbout();
+        visible: false
+    }
+
+    DialogAbout {
+        id: dialogAbout
+        anchors.centerIn: parent
+        width: parent.width * 0.75
+        height: parent.width * 0.75
+        visible: false
+        onStartGame: applicationWindow.startGame();
+        onQuit: applicationWindow.quit();
+    }
+
+    DialogEndGame {
+        id: dialogEndGame
+        anchors.centerIn: parent
+        width: parent.width * 0.75
+        height: parent.width * 0.75
+        onStartGame: applicationWindow.startGame();
+        onQuit: applicationWindow.quit();
+        onAbout: applicationWindow.showAbout();
+        visible: false
     }
 
     Connections {
@@ -63,15 +89,43 @@ ApplicationWindow {
     }
 
     function startGame() {
+        dialogAbout.visible = false;
+        dialogWelcome.visible = false;
+        dialogEndGame.visible = false;
         startBgMusic();
         gameBoard.startGame();
+    }
+
+
+    function showWelcome() {
+        dialogAbout.visible = false;
+        dialogWelcome.visible = true;
+        dialogEndGame.visible = false;
+    }
+
+    function showAbout() {
+        dialogAbout.visible = true;
+        dialogWelcome.visible = false;
+        dialogEndGame.visible = false;
+    }
+
+    function showEndGame() {
+        dialogAbout.visible = false;
+        dialogWelcome.visible = false;
+        dialogEndGame.visible = true;
+    }
+
+    function quit() {
+        applicationWindow.showNormal();
+        applicationWindow.close();
     }
 
     Component.onCompleted: {
         //applicationWindow.showFullScreen();
 
         //temp start game here - in future wait until user initiates
-        startGame();
+        //startGame();
 
+        showWelcome();
     }
 }

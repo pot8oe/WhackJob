@@ -27,19 +27,19 @@ Rectangle  {
     id: container
 
     property string text: "Button"
-    property color textColor: "Black"
+    property color textColor: "White"
 
     signal clicked
 
     gradient: Gradient {
         GradientStop {
             position: 0
-            color: "#e16d22"
+            color: "#ff113b9f"
         }
 
         GradientStop {
             position: 1
-            color: "#9d2314"
+            color: "#ff214baf"
         }
     }
     border.color: "#680000"
