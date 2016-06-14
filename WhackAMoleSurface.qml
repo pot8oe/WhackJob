@@ -329,13 +329,13 @@ Rectangle {
 
             resetAgeAffector();
 
-            if(score % 10 == 0) increaseDifficulty();
+            if(score > 0 && score % 10 == 0) increaseDifficulty();
 
             //console.debug("Total: " + totalWhackJobs + " Score: " + score);
 
             if(totalWhackJobs - score > ((totalWhackJobs*0.33)+0.5) && totalWhackJobs > 10) {
-                timer.stop();
                 timerEndGame.start();
+                timer.stop();
             } else {
 
                 var i=-1;
