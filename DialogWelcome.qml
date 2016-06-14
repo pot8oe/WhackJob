@@ -21,8 +21,8 @@ Dialog {
         font.bold: true
         font.pixelSize: parent.height * 0.05
         wrapMode: Text.WordWrap
-        color: "#ffffffff"
-        styleColor: "#ff0000ff"
+        color: "#ff113b9f"
+        styleColor: "#ffffffff"
         style: Text.Outline
         smooth: true
         text: qsTr("\tSave the world from pending doom by slapping the whack job back into the inheritance from whence came.");
