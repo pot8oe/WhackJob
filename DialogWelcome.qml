@@ -13,10 +13,7 @@ Dialog {
         id: textMsg
         anchors.top: parent.top
         anchors.topMargin: parent.height * 0.02
-        anchors.left: parent.left
-        anchors.leftMargin: parent.height * 0.02
-        anchors.right: parent.right
-        anchors.rightMargin: parent.height * 0.02
+        anchors.horizontalCenter: parent.horizontalCenter
         font.family: fontRobotoBold.name
         font.bold: true
         font.pixelSize: parent.height * 0.05
@@ -25,7 +22,7 @@ Dialog {
         styleColor: "#ffffffff"
         style: Text.Outline
         smooth: true
-        text: qsTr("\tSave the world from pending doom by slapping the whack job back into the inheritance from whence came.");
+        text: qsTr("");
     }
 
     ColumnLayout {
