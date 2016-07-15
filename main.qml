@@ -96,7 +96,6 @@ ApplicationWindow {
         gameBoard.startGame();
     }
 
-
     function showWelcome() {
         dialogAbout.visible = false;
         dialogWelcome.visible = true;
@@ -122,10 +121,6 @@ ApplicationWindow {
 
     Component.onCompleted: {
         //applicationWindow.showFullScreen();
-
-        //temp start game here - in future wait until user initiates
-        //startGame();
-
         showWelcome();
     }
 }
