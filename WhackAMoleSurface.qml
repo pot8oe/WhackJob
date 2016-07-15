@@ -384,8 +384,8 @@ Rectangle {
 
     function increaseDifficulty() {
 
-        if(timer.interval > 250) {
-            timer.interval -= 50;
+        if(timer.interval > 500) {
+            timer.interval -= 25;
         } else {
             if(privates.headsPerTick < 10) {
                 privates.headsPerTick += 1;
