@@ -9,13 +9,9 @@ Dialog {
     signal quit
 
     Text {
-        id: textMsg
+        id: textTitle
         anchors.top: parent.top
-        anchors.topMargin: parent.height * 0.02
-        anchors.left: parent.left
-        anchors.leftMargin: parent.height * 0.02
-        anchors.right: parent.right
-        anchors.rightMargin: parent.height * 0.02
+        anchors.horizontalCenter: parent.horizontalCenter
         font.family: fontRobotoBold.name
         font.bold: true
         font.pixelSize: parent.height * 0.10
@@ -30,7 +26,7 @@ Dialog {
     ColumnLayout {
         id: column
         anchors.horizontalCenter: parent.Center
-        anchors.top: textMsg.bottom
+        anchors.top: textTitle.bottom
         anchors.topMargin: parent.height * 0.01
         anchors.left: parent.left
         anchors.leftMargin: parent.height * 0.02
@@ -39,6 +35,42 @@ Dialog {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: parent.height * 0.02
         spacing: parent.height * 0.01
+
+        Text {
+            id: textMusic
+            anchors.topMargin: parent.height * 0.02
+            anchors.left: parent.left
+            anchors.leftMargin: parent.height * 0.02
+            anchors.right: parent.right
+            anchors.rightMargin: parent.height * 0.02
+            font.family: fontRobotoBold.name
+            font.bold: true
+            font.pixelSize: parent.height * 0.05
+            wrapMode: Text.WordWrap
+            color: "#ff113b9f"
+            styleColor: "#ffffffff"
+            style: Text.Outline
+            smooth: true
+            text: ("Music: Creepy - <a href='http://www.bensound.com/royalty-free-music'>bensound.com</a>")
+        }
+
+        Text {
+            id: textSourceCode
+            anchors.topMargin: parent.height * 0.02
+            anchors.left: parent.left
+            anchors.leftMargin: parent.height * 0.02
+            anchors.right: parent.right
+            anchors.rightMargin: parent.height * 0.02
+            font.family: fontRobotoBold.name
+            font.bold: true
+            font.pixelSize: parent.height * 0.05
+            wrapMode: Text.WordWrap
+            color: "#ff113b9f"
+            styleColor: "#ffffffff"
+            style: Text.Outline
+            smooth: true
+            text: ("Source: on <a href='https://github.com/pot8oe/WhackJob'>Github</a>")
+        }
 
         DialogButton {
             id: buttonStartGame
