@@ -9,6 +9,14 @@ ApplicationWindow {
     height: 1080
     title: qsTr("Whack Job")
 
+    Item{
+        id: privates
+        property int limitingDimension: {
+            applicationWindow.width < applicationWindow.height ?
+                        applicationWindow.width : applicationWindow.height;
+        }
+    }
+
     Audio {
         id: audioBgMusic
         loops: MediaPlayer.Infinite
@@ -28,8 +36,8 @@ ApplicationWindow {
     DialogWelcome {
         id: dialogWelcome
         anchors.centerIn: parent
-        width: parent.width * 0.75
-        height: parent.width * 0.75
+        width: privates.limitingDimension * 0.75
+        height: privates.limitingDimension * 0.75
         onStartGame: applicationWindow.startGame();
         onQuit: applicationWindow.quit();
         onAbout: applicationWindow.showAbout();
@@ -39,8 +47,8 @@ ApplicationWindow {
     DialogAbout {
         id: dialogAbout
         anchors.centerIn: parent
-        width: parent.width * 0.75
-        height: parent.width * 0.75
+        width: privates.limitingDimension * 0.75
+        height: privates.limitingDimension * 0.75
         visible: false
         onStartGame: applicationWindow.startGame();
         onQuit: applicationWindow.quit();
@@ -49,8 +57,8 @@ ApplicationWindow {
     DialogEndGame {
         id: dialogEndGame
         anchors.centerIn: parent
-        width: parent.width * 0.75
-        height: parent.width * 0.75
+        width: privates.limitingDimension * 0.75
+        height: privates.limitingDimension * 0.75
         onStartGame: applicationWindow.startGame();
         onQuit: applicationWindow.quit();
         onAbout: applicationWindow.showAbout();
