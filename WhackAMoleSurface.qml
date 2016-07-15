@@ -37,6 +37,7 @@ Rectangle {
         property double hSpacing: privates.starLayoutSize * 0.02
         property double vSpacing: privates.starLayoutSize * 0.03
         property int lastIndex: -1;
+        property int headsPerTick: 1;
     }
 
 
@@ -382,7 +383,15 @@ Rectangle {
     }
 
     function increaseDifficulty() {
-        timer.interval -= 50;
+
+        if(timer.interval > 250) {
+            timer.interval -= 50;
+        } else {
+            if(privates.headsPerTick < 10) {
+                privates.headsPerTick += 1;
+            }
+        }
+
         //console.debug("Difficulty Increased: " + timer.interval + " Score: " + score);
     }
 
