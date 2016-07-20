@@ -25,6 +25,7 @@ Rectangle {
     Item {
         id: privates
         property string pGroupName_Whacko001: "whacko001";
+        property string pGroupName_Whacko002: "whacko002";
         property double starSize: {
             itemStarLayout.width < itemStarLayout.height ?
                         itemStarLayout.width * 0.20 : itemStarLayout.height * 0.15
@@ -72,7 +73,7 @@ Rectangle {
                 sourceSize.width: privates.starSize
                 sourceSize.height: privates.starSize
                 emitter.system: systemDrumpf
-                emitter.group: privates.pGroupName_Whacko001
+                emitter.group: privates.pGroupName_Whacko002
             }
 
             EmitterStar {
@@ -88,7 +89,7 @@ Rectangle {
                 sourceSize.width: privates.starSize
                 sourceSize.height: privates.starSize
                 emitter.system: systemDrumpf
-                emitter.group: privates.pGroupName_Whacko001
+                emitter.group: privates.pGroupName_Whacko002
             }
         }
 
@@ -108,7 +109,7 @@ Rectangle {
                 sourceSize.width: privates.starSize
                 sourceSize.height: privates.starSize
                 emitter.system: systemDrumpf
-                emitter.group: privates.pGroupName_Whacko001
+                emitter.group: privates.pGroupName_Whacko002
             }
 
             EmitterStar {
@@ -124,7 +125,7 @@ Rectangle {
                 sourceSize.width: privates.starSize
                 sourceSize.height: privates.starSize
                 emitter.system: systemDrumpf
-                emitter.group: privates.pGroupName_Whacko001
+                emitter.group: privates.pGroupName_Whacko002
             }
 
             EmitterStar {
@@ -159,7 +160,7 @@ Rectangle {
                 sourceSize.width: privates.starSize
                 sourceSize.height: privates.starSize
                 emitter.system: systemDrumpf
-                emitter.group: privates.pGroupName_Whacko001
+                emitter.group: privates.pGroupName_Whacko002
             }
 
             EmitterStar {
@@ -175,7 +176,7 @@ Rectangle {
                 sourceSize.width: privates.starSize
                 sourceSize.height: privates.starSize
                 emitter.system: systemDrumpf
-                emitter.group: privates.pGroupName_Whacko001
+                emitter.group: privates.pGroupName_Whacko002
             }
         }
 
@@ -194,7 +195,7 @@ Rectangle {
                 sourceSize.width: privates.starSize
                 sourceSize.height: privates.starSize
                 emitter.system: systemDrumpf
-                emitter.group: privates.pGroupName_Whacko001
+                emitter.group: privates.pGroupName_Whacko002
             }
 
             EmitterStar {
@@ -210,7 +211,7 @@ Rectangle {
                 sourceSize.width: privates.starSize
                 sourceSize.height: privates.starSize
                 emitter.system: systemDrumpf
-                emitter.group: privates.pGroupName_Whacko001
+                emitter.group: privates.pGroupName_Whacko002
             }
 
             EmitterStar {
@@ -245,7 +246,7 @@ Rectangle {
                 sourceSize.width: privates.starSize
                 sourceSize.height: privates.starSize
                 emitter.system: systemDrumpf
-                emitter.group: privates.pGroupName_Whacko001
+                emitter.group: privates.pGroupName_Whacko002
             }
 
             EmitterStar {
@@ -261,7 +262,7 @@ Rectangle {
                 sourceSize.width: privates.starSize
                 sourceSize.height: privates.starSize
                 emitter.system: systemDrumpf
-                emitter.group: privates.pGroupName_Whacko001
+                emitter.group: privates.pGroupName_Whacko002
             }
         }
 
@@ -283,11 +284,21 @@ Rectangle {
         }
     }
 
+    ParticleGroup {
+        id: particleGroupWhacko002
+        name: privates.pGroupName_Whacko002
+        system: systemDrumpf
+
+        ParticleWhacko002 {
+            id: particleWhacko002
+        }
+    }
+
     Age {
         id: ageHit
         enabled: false
         system: systemDrumpf
-        groups: [ privates.pGroupName_Whacko001 ]
+        groups: [ privates.pGroupName_Whacko001, privates.pGroupName_Whacko002 ]
         width: privates.starSize
         height: privates.starSize
         lifeLeft: 300
