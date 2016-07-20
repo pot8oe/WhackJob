@@ -16,7 +16,7 @@ Image {
         width: 1
         height: 1
         size: img.sourceSize.width * 1.10
-        sizeVariation: 10
+        sizeVariation: img.sourceSize.width * 0.10
         emitRate: 0
     }
 
