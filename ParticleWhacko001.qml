@@ -23,8 +23,6 @@ import QtQuick 2.0
 import QtQuick.Particles 2.0
 
 ImageParticle {
-
-    //source: "qrc:/images/whack_job_sprite_001.png"
     width: 100
     height: 100
 
