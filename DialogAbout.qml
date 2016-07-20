@@ -73,6 +73,7 @@ Dialog {
             style: Text.Outline
             smooth: true
             text: ("Music: Creepy - <a href='http://www.bensound.com/royalty-free-music'>bensound.com</a>")
+            onLinkActivated: Qt.openUrlExternally(link)
         }
 
         Text {
@@ -90,7 +91,9 @@ Dialog {
             styleColor: "#ffffffff"
             style: Text.Outline
             smooth: true
-            text: ("Source: on <a href='https://github.com/pot8oe/WhackJob'>Github</a>")
+            text: ("Source: on <a href='https://github.com/pot8oe/WhackJob'>Github.com</a>")
+            onLinkActivated: Qt.openUrlExternally(link)
+
         }
 
         DialogButton {
