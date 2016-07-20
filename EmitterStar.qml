@@ -27,8 +27,6 @@ Image {
     fillMode: Image.PreserveAspectFit
     source: "qrc:/images/star.svg"
 
-    //Rectangle{ anchors.fill: parent; color: "#55000000";}
-
     readonly property alias emitter: emitterInternal
 
     Emitter {
