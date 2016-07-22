@@ -12,5 +12,6 @@
         <file>Dialog.qml</file>
         <file>DialogButton.qml</file>
         <file>ParticleWhacko002.qml</file>
+        <file>DialogLicenses.qml</file>
     </qresource>
 </RCC>
