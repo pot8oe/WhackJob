@@ -90,38 +90,57 @@ Dialog {
         anchors.bottom: parent.bottom
         text: qsTr("Done");
         anchors.bottomMargin: parent.height * 0.02
-        onClicked: done();
+        onClicked: {
+            privates.clearLicenses();
+            done();
+        }
     }
 
 
 
     Item {
         id: privates
-        property string licenseGPLv3:""
-        property string licenseApachev2:""
+        property string licenseGPLv3:"Loading..."
+        property string licenseApachev2:"Loading..."
+
+        function clearLicenses() {
+            licenseApachev2 = "Loading...";
+            licenseGPLv3 = "Loading...";
+        }
     }
 
-    Component.onCompleted: {
+    onVisibleChanged: {
 
-        var requestGPLv3 = new XMLHttpRequest()
-        requestGPLv3.open('GET', 'qrc:/licenses/Qt.txt')
-        requestGPLv3.onreadystatechange = function(event) {
-            if (requestGPLv3.readyState === XMLHttpRequest.DONE) {
-                privates.licenseGPLv3 = requestGPLv3.responseText
+        if(!visible) return;
+
+        timerLoadLicenses.start();
+
+    }
+
+    Timer {
+        id: timerLoadLicenses
+        interval: 500
+        repeat: false
+        onTriggered: {
+            var requestGPLv3 = new XMLHttpRequest()
+            requestGPLv3.open('GET', 'qrc:/licenses/Qt.txt')
+            requestGPLv3.onreadystatechange = function(event) {
+                if (requestGPLv3.readyState === XMLHttpRequest.DONE) {
+                    privates.licenseGPLv3 = requestGPLv3.responseText
+                }
             }
-        }
-        requestGPLv3.send();
 
-        var requestApachev2 = new XMLHttpRequest()
-        requestApachev2.open('GET', 'qrc:/licenses/Roboto_Font.txt')
-        requestApachev2.onreadystatechange = function(event) {
-            if (requestApachev2.readyState === XMLHttpRequest.DONE) {
-                privates.licenseApachev2 = requestApachev2.responseText
+            var requestApachev2 = new XMLHttpRequest()
+            requestApachev2.open('GET', 'qrc:/licenses/Roboto_Font.txt')
+            requestApachev2.onreadystatechange = function(event) {
+                if (requestApachev2.readyState === XMLHttpRequest.DONE) {
+                    privates.licenseApachev2 = requestApachev2.responseText
+                }
             }
+
+            requestGPLv3.send();
+            requestApachev2.send();
         }
-        requestApachev2.send();
-
-
     }
 
 
