@@ -116,7 +116,12 @@ ApplicationWindow {
     }
 
     function startBgMusicUrl(musicUrl) {
-        if(musicUrl !== null && musicUrl !== undefined) {
+        if(musicUrl !== null
+                && musicUrl !== undefined
+                && !dialogAbout.visible
+                && !dialogWelcome.visible
+                && !dialogEndGame.visible
+                && !dialogLicenses.visible) {
             audioBgMusic.source = musicUrl;
             audioBgMusic.volume = 0.5;
             audioBgMusic.play();
