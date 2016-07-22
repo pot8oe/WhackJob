@@ -27,6 +27,7 @@ Dialog {
     id: dialog
 
     signal startGame
+    signal showLicenses
     signal quit
 
     Text {
@@ -106,6 +107,15 @@ Dialog {
         }
 
         DialogButton {
+            id: buttonLicenses
+            Layout.alignment: Layout.Center
+            Layout.preferredHeight: parent.height * 0.20
+            Layout.preferredWidth: parent.width * 0.70
+            text: qsTr("Licenses");
+            onClicked: showLicenses();
+        }
+
+        DialogButton {
             id: buttonQuitGame
             Layout.alignment: Layout.Center
             Layout.preferredHeight: parent.height * 0.20
@@ -113,6 +123,5 @@ Dialog {
             text: qsTr("Quit");
             onClicked: quit();
         }
-
     }
 }

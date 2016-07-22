@@ -72,7 +72,17 @@ ApplicationWindow {
         height: privates.limitingDimension * 0.75
         visible: false
         onStartGame: applicationWindow.startGame();
+        onShowLicenses: applicationWindow.showLicenses();
         onQuit: applicationWindow.quit();
+    }
+
+    DialogLicenses {
+        id: dialogLicenses
+        anchors.centerIn: parent
+        width: privates.limitingDimension * 0.95
+        height: privates.limitingDimension * 0.95
+        visible: false
+        onDone: applicationWindow.showAbout();
     }
 
     DialogEndGame {
@@ -121,6 +131,7 @@ ApplicationWindow {
         dialogAbout.visible = false;
         dialogWelcome.visible = false;
         dialogEndGame.visible = false;
+        dialogLicenses.visible = false;
         startBgMusic();
         gameBoard.startGame();
     }
@@ -129,18 +140,28 @@ ApplicationWindow {
         dialogAbout.visible = false;
         dialogWelcome.visible = true;
         dialogEndGame.visible = false;
+        dialogLicenses.visible = false;
     }
 
     function showAbout() {
         dialogAbout.visible = true;
         dialogWelcome.visible = false;
         dialogEndGame.visible = false;
+        dialogLicenses.visible = false;
+    }
+
+    function showLicenses() {
+        dialogAbout.visible = false;
+        dialogWelcome.visible = false;
+        dialogEndGame.visible = false;
+        dialogLicenses.visible = true;
     }
 
     function showEndGame() {
         dialogAbout.visible = false;
         dialogWelcome.visible = false;
         dialogEndGame.visible = true;
+        dialogLicenses.visible = false;
     }
 
     function quit() {
