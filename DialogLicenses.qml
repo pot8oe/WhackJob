@@ -119,7 +119,7 @@ Dialog {
 
     Timer {
         id: timerLoadLicenses
-        interval: 500
+        interval: 100
         repeat: false
         onTriggered: {
             var requestGPLv3 = new XMLHttpRequest()
