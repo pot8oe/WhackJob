@@ -69,7 +69,7 @@ ApplicationWindow {
         id: dialogAbout
         anchors.centerIn: parent
         width: privates.limitingDimension * 0.75
-        height: privates.limitingDimension * 0.75
+        height: applicationWindow.height * 0.95
         visible: false
         onStartGame: applicationWindow.startGame();
         onShowLicenses: applicationWindow.showLicenses();
@@ -80,7 +80,7 @@ ApplicationWindow {
         id: dialogLicenses
         anchors.centerIn: parent
         width: privates.limitingDimension * 0.95
-        height: privates.limitingDimension * 0.95
+        height: applicationWindow.height * 0.95
         visible: false
         onDone: applicationWindow.showAbout();
     }
