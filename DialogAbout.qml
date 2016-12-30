@@ -29,6 +29,7 @@ Dialog {
     signal startGame
     signal showLicenses
     signal showPrivacy
+
     signal quit
 
     Text {
@@ -95,7 +96,6 @@ Dialog {
             smooth: true
             text: ("Source: on <a href='https://github.com/pot8oe/WhackJob'>Github.com</a>")
             onLinkActivated: Qt.openUrlExternally(link)
-
         }
 
         DialogButton {

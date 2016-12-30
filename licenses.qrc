@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>licenses/Qt.txt</file>
+        <file>licenses/Roboto_Font.txt</file>
+        <file>licenses/WhackJob.txt</file>
+    </qresource>
+</RCC>
