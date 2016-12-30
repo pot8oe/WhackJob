@@ -49,7 +49,7 @@ Dialog {
         anchors.bottom: buttonDone.top
         anchors.left: parent.left
         anchors.rightMargin: 8
-        anchors.bottomMargin: 6
+        anchors.bottomMargin: 10
         anchors.leftMargin: 8
         anchors.topMargin: 11
 
@@ -84,8 +84,9 @@ Dialog {
 
     DialogButton {
         id: buttonDone
-        width:  parent.width * 0.90
-        height: parent.height * 0.05
+        width:  parent.width * 0.50
+        height: 50
+        radius: 3
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         text: qsTr("Done");
