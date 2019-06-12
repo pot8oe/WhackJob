@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
-<manifest package="tkj.games.whackjob" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.0" android:versionCode="914100" android:installLocation="auto">
+<manifest package="tkj.games.whackjob" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.1.0" android:versionCode="923110" android:installLocation="auto">
     <application android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="-- %%INSERT_APP_NAME%% --" android:icon="@drawable/icon">
+
+        <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:anyDensity="true"/>
+
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation" android:name="org.qtproject.qt5.android.bindings.QtActivity" android:label="-- %%INSERT_APP_NAME%% --" android:screenOrientation="unspecified" android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -42,7 +45,7 @@
             <!-- Background running -->
         </activity>
     </application>
-    <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="14"/>
+    <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="23"/>
     <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
 
     <!-- The following comment will be replaced upon deployment with default permissions based on the dependencies of the application.

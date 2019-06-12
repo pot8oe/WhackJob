@@ -28,6 +28,8 @@ Dialog {
 
     signal startGame
     signal showLicenses
+    signal showPrivacy
+
     signal quit
 
     Text {
@@ -75,7 +77,6 @@ Dialog {
             smooth: true
             text: ("Music: Creepy - <a href='http://www.bensound.com/royalty-free-music'>bensound.com</a>")
             onLinkActivated: Qt.openUrlExternally(link)
-
         }
 
         Text {
@@ -100,7 +101,7 @@ Dialog {
         DialogButton {
             id: buttonStartGame
             Layout.alignment: Layout.Center
-            Layout.preferredHeight: parent.height * 0.20
+            Layout.preferredHeight: parent.height * 0.15
             Layout.preferredWidth: parent.width * 0.70
             text: qsTr("Start Game");
             onClicked: startGame();
@@ -109,16 +110,25 @@ Dialog {
         DialogButton {
             id: buttonLicenses
             Layout.alignment: Layout.Center
-            Layout.preferredHeight: parent.height * 0.20
+            Layout.preferredHeight: parent.height * 0.15
             Layout.preferredWidth: parent.width * 0.70
             text: qsTr("Licenses");
             onClicked: showLicenses();
         }
 
         DialogButton {
+            id: buttonPrivacy
+            Layout.alignment: Layout.Center
+            Layout.preferredHeight: parent.height * 0.15
+            Layout.preferredWidth: parent.width * 0.70
+            text: qsTr("Privacy");
+            onClicked: showPrivacy();
+        }
+
+        DialogButton {
             id: buttonQuitGame
             Layout.alignment: Layout.Center
-            Layout.preferredHeight: parent.height * 0.20
+            Layout.preferredHeight: parent.height * 0.15
             Layout.preferredWidth: parent.width * 0.70
             text: qsTr("Quit");
             onClicked: quit();

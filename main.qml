@@ -69,15 +69,25 @@ ApplicationWindow {
         id: dialogAbout
         anchors.centerIn: parent
         width: privates.limitingDimension * 0.75
-        height: privates.limitingDimension * 0.75
+        height: privates.limitingDimension * 0.95
         visible: false
         onStartGame: applicationWindow.startGame();
         onShowLicenses: applicationWindow.showLicenses();
+        onShowPrivacy: applicationWindow.showPrivacy();
         onQuit: applicationWindow.quit();
     }
 
     DialogLicenses {
         id: dialogLicenses
+        anchors.centerIn: parent
+        width: privates.limitingDimension * 0.95
+        height: privates.limitingDimension * 0.95
+        visible: false
+        onDone: applicationWindow.showAbout();
+    }
+
+    DialogPrivacy {
+        id: dialogPrivacy
         anchors.centerIn: parent
         width: privates.limitingDimension * 0.95
         height: privates.limitingDimension * 0.95
@@ -137,6 +147,7 @@ ApplicationWindow {
         dialogWelcome.visible = false;
         dialogEndGame.visible = false;
         dialogLicenses.visible = false;
+        dialogPrivacy.visible = false;
         startBgMusic();
         gameBoard.startGame();
     }
@@ -146,6 +157,7 @@ ApplicationWindow {
         dialogWelcome.visible = true;
         dialogEndGame.visible = false;
         dialogLicenses.visible = false;
+        dialogPrivacy.visible = false;
     }
 
     function showAbout() {
@@ -153,6 +165,7 @@ ApplicationWindow {
         dialogWelcome.visible = false;
         dialogEndGame.visible = false;
         dialogLicenses.visible = false;
+        dialogPrivacy.visible = false;
     }
 
     function showLicenses() {
@@ -160,6 +173,15 @@ ApplicationWindow {
         dialogWelcome.visible = false;
         dialogEndGame.visible = false;
         dialogLicenses.visible = true;
+        dialogPrivacy.visible = false;
+    }
+
+    function showPrivacy() {
+        dialogAbout.visible = false;
+        dialogWelcome.visible = false;
+        dialogEndGame.visible = false;
+        dialogLicenses.visible = false;
+        dialogPrivacy.visible = true;
     }
 
     function showEndGame() {
@@ -167,6 +189,7 @@ ApplicationWindow {
         dialogWelcome.visible = false;
         dialogEndGame.visible = true;
         dialogLicenses.visible = false;
+        dialogPrivacy.visible = false;
     }
 
     function quit() {

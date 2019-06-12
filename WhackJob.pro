@@ -10,7 +10,7 @@ RESOURCES += qml.qrc \
     image.qrc \
     font.qrc \
     audio.qrc \
-    licenses.qrc
+    legal.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
